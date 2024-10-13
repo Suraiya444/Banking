@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BankController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,15 @@ use App\Http\Controllers\Api\AuthController;
 Route::controller(AuthController::class)->group(function(){
     Route::post('register','_register');
     Route::post('login','_login');
+    Route::get('login','_login');
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::apiResource('bank', BankController::class);
+    Route::apiResource('bank_branch', BankBranchController::class);
+     
 });
+
 // Route::controller(DesignationController::class)->group(function(){
 //     Route::get('designation','index');
 //     Route::get('designation/{designation}','show');
