@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BankController;
-// use App\Http\Controllers\Api\DesignationController;
+use App\Http\Controllers\Api\BankBranchController;
+use App\Http\Controllers\Api\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +26,7 @@ Route::controller(AuthController::class)->group(function(){
 Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
+    Route::apiResource('cusstomer', CustomerController::class);
      
 });
 
