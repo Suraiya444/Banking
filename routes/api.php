@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
     Route::apiResource('customer', CustomerController::class);
+    Route::apiResource('account_type', AccountTypeController::class);
      
 });
 
