@@ -26,7 +26,7 @@ Route::controller(AuthController::class)->group(function(){
 Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
-    Route::apiResource('cusstomer', CustomerController::class);
+    Route::apiResource('customer', CustomerController::class);
      
 });
 

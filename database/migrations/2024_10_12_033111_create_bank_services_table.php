@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_services', function (Blueprint $table) {
+        Schema::create('bank_services', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->decimal('amount',10,2)->default(0);
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_services');
+        Schema::dropIfExists('bank_services');
     }
 };

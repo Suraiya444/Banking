@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models;
@@ -11,7 +11,7 @@ class CustomerController extends BaseController
 {
     public function index()
     {
-        $data=Customer::get();
+        $data=Customer::with('bank','bank_branches');
         return $this->sendResponse($data,"Customer List");
     }
     public function store(Request $request)
