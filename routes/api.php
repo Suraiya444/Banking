@@ -28,6 +28,11 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('bank_branch', BankBranchController::class);
     Route::apiResource('customer', CustomerController::class);
     Route::apiResource('account_type', AccountTypeController::class);
+    Route::apiResource('customer_account', CustomerAccountController::class);
+    Route::apiResource('customer_service', CustomerServicetController::class);
+    Route::apiResource('customer_transaction', CustomerTransactionController::class);
+    Route::apiResource('loan', LoanController::class);
+    Route::apiResource('loan_payment', LoanPaymentController::class);
      
 });
 
