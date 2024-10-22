@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
-            $table->int('customer_id');
-            $table->int('customer_account_id');
-            $table->int('to_customer_account_id');
+            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_account_id')->constrained();
+            $table->integer('to_customer_account_id')->constrained();
             $table->date('transfer_date');
-            $table->decimal('amount',10,2);
-            $table->text('status');
+            $table->decimal('amount',14,2)->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

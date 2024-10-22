@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('payment_details', function (Blueprint $table) {
             $table->id();
-            $table->int('customer_id');
-            $table->int('customer_account_id');
-            $table->date('payment_date');
+            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_account_id')->constrained();
+            $table->date('payment_date')->nullable();
             $table->string('payment_method');
             $table->timestamps();
         });

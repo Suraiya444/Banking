@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('cheque_books', function (Blueprint $table) {
             $table->id();
-            $table->int('customer_id')->nullable();
-            $table->int('customer_account_id')->nullable();
-            $table->int('no_of_pages')->nullable();
-            $table->int('first_leaf_no')->nullable();
-            $table->int('last_leaf_no')->nullable();
-            $table->int('status')->default(0)->comment('0 inactive,1 active');
+            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_account_id')->constrained();
+            $table->integer('no_of_pages')->nullable();
+            $table->integer('first_leaf_no') ;
+            $table->integer('last_leaf_no');
+            $table->integer('status')->default(0)->comment('0 inactive,1 active');
             $table->timestamps();
             $table->timestamps();
         });
