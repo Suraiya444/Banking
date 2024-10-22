@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('account_type_id')->constrained();
+            $table->string('account_no');
+            $table->string('initial_amount',10,2);
             $table->decimal('max_balance',10,2);
             $table->decimal('max_transfer',10,2);
             $table->decimal('max_withdrawal',10,2);

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerAccount extends Model
 {
     use HasFactory;
-    protected $fillable=['customer_id', 'account_type_id', 'max_balance', 'max_transfer', 'max_withdrawal', 'yearly_interest', 'account_open_date', 'account_close_date', 'status'];
+    protected $fillable=['customer_id', 'account_type_id','account_no','initial_amount','max_balance', 'max_transfer', 'max_withdrawal', 'yearly_interest', 'account_open_date', 'account_close_date', 'status'];
 }

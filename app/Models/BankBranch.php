@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BankBranch extends Model
 {
     use HasFactory;
-    protected $fillable=['bank_id', 'name', 'contact_no', 'email', 'address'];
+    protected $fillable=['bank_id','district_id','name','routing', 'contact_no', 'email', 'address'];
 
     /**
      * Get the user that owns the BankBranch
