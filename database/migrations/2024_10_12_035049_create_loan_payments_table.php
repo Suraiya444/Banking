@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('loan_id')->constrained();
+            $table->foreignId('customer_account_id')->constrained();
             $table->integer('payment_number');
             $table->decimal('balance',10,2);
             $table->decimal('amount',10,2);

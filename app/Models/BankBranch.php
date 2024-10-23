@@ -19,7 +19,7 @@ class BankBranch extends Model
     {
         return $this->belongsTo(Bank::class);
     }
-    public function bank()
+    public function bank_branch()
     {
         return $this->belongsTo(Bank::class);
     }
