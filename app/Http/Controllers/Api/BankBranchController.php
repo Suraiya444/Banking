@@ -13,7 +13,7 @@ class BankBranchController extends BaseController
      */
     public function index()
     {
-        $data=BankBranch::with('bank')->get();
+        $data=BankBranch::with('bank','district_id')->get();
         return $this->sendResponse($data,"Bank Branch list");
     }
 

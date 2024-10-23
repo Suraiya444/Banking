@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('nominees', function (Blueprint $table) {
             $table->id();
-            $table->int('customer_id');
-            $table->int('customer_accounts_id');
+            $table->int('customer_id')->constrained();
+            $table->int('customer_accounts_id')->constrained();
             $table->string('name');
             $table->date('dob');
             $table->string('image');
