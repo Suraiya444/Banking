@@ -25,9 +25,10 @@ use App\Http\Controllers\Api\DistrictController;
 //     Route::get('login','_login');
 // });
 Route::controller(AuthController::class)->group(function(){
-    Route::apiResource('district', DistrictController::class);
+    
     Route::post('login','_login');
     Route::get('login','_login');
+    Route::apiResource('district', DistrictController::class);
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
 });
