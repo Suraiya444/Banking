@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('customer_types', function (Blueprint $table) {
             $table->id();
-            $table->int('customer_id')->constrained();
-            $table->int('customer_account_id')->constrained();
-            $table->int('account_type_id')->constrained();
+            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_account_id')->constrained();
+            $table->foreignId('account_type_id')->constrained();
             $table->string('name');
             $table->timestamps();
         });

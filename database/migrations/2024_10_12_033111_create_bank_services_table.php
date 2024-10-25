@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('amount',10,2)->default(0);
+            $table->integer('contact_no')->nullable();
             $table->timestamps();
         });
     }

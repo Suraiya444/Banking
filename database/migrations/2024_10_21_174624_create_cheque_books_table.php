@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('last_leaf_no');
             $table->integer('status')->default(0)->comment('0 inactive,1 active');
             $table->timestamps();
-            $table->timestamps();
+           
         });
     }
 

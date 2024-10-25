@@ -15,13 +15,15 @@ class BankBranch extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    
+     
     public function bank()
     {
         return $this->belongsTo(Bank::class);
     }
-    public function bank_branch()
+    public function district()
     {
-        return $this->belongsTo(Bank::class);
+        return $this->belongsTo(District::class);
     }
 
 }

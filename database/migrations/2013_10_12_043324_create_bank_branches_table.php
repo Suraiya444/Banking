@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('district_id')->constrained();
             $table->string('name');
             $table->string('contact_no');
+            $table->string('routing');
             $table->string('email');
             $table->text('address');
             $table->timestamps();

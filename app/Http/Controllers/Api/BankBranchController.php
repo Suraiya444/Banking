@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use App\Http\Controllers\Controller;
 use App\Models\BankBranch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
@@ -13,7 +13,7 @@ class BankBranchController extends BaseController
      */
     public function index()
     {
-        $data=BankBranch::with('bank','district_id')->get();
+        $data=BankBranch::with('bank','district')->get();
         return $this->sendResponse($data,"Bank Branch list");
     }
 
@@ -39,10 +39,13 @@ class BankBranchController extends BaseController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,BankBranch $bank_branch)
     {
-        $bank_branch=BankBranch::where('id',$id)->update($request->all());
-        return $this->sendResponse($bank_branch,"BankBranch updated successfully");
+        $id= $bank_branch->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=BankBranch::where('id',$id)->update($input);
+        return $this->sendResponse($data,"bank Branch updated successfully");
     }
 
     /**

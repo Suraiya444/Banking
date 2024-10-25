@@ -27,10 +27,10 @@ class AccountTypeController extends BaseController
 
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request,AccountType $account_type)
     {
       
-        $id= $account_type->id;
+        $id=$account_type->id;
         $input =$request->all();
         unset($input['_method']);
         $data=AccountType::where('id',$id)->update($input);

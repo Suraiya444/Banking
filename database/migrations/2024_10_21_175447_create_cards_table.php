@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('card_catagories_id')->constrained();
+            $table->foreignId('card_category_id')->constrained();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('customer_account_id')->constrained();
             $table->foreignId('account_type_id')->constrained();

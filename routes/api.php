@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\BankBranchController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\DistrictController;
 use App\Http\Controllers\Api\AccountTypeController;
+use App\Http\Controllers\Api\BankServiceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +34,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
     Route::apiResource('account_type', AccountTypeController::class);
+    Route::apiResource('bank_service', BankServiceController::class);
 });
 
 // Route::middleware('auth:sanctum')->group(function(){
