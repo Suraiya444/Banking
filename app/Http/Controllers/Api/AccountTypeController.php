@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AccountType; 
@@ -30,8 +29,13 @@ class AccountTypeController extends BaseController
     
     public function update(Request $request, $id)
     {
-        $account_type=AccountType::where('id',$id)->update($request->all());
-        return $this->sendResponse($account_type,"Account Type updated successfully");
+      
+        $id= $account_type->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=AccountType::where('id',$id)->update($input);
+        return $this->sendResponse($data,"Account Type updated successfully");
+
     }
 
     public function destroy(AccountType $account_type)

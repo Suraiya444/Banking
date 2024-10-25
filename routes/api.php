@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\BankController;
 use App\Http\Controllers\Api\BankBranchController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\DistrictController;
+use App\Http\Controllers\Api\AccountTypeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,12 +26,13 @@ use App\Http\Controllers\Api\DistrictController;
 //     Route::get('login','_login');
 // });
 Route::controller(AuthController::class)->group(function(){
-    
+    Route::post('register','_register');
     Route::post('login','_login');
     Route::get('login','_login');
     Route::apiResource('district', DistrictController::class);
     Route::apiResource('bank', BankController::class);
     Route::apiResource('bank_branch', BankBranchController::class);
+    Route::apiResource('account_type', AccountTypeController::class);
 });
 
 // Route::middleware('auth:sanctum')->group(function(){
@@ -38,7 +40,7 @@ Route::controller(AuthController::class)->group(function(){
 //     Route::apiResource('district', DistrictController::class);
     // Route::apiResource('bank_branch', BankBranchController::class);
     // Route::apiResource('customer', CustomerController::class);
-    // Route::apiResource('account_type', AccountTypeController::class);
+    // 
     // Route::apiResource('customer_account', CustomerAccountController::class);
     // Route::apiResource('customer_service', CustomerServicetController::class);
     // Route::apiResource('customer_transaction', CustomerTransactionController::class);
