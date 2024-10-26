@@ -11,7 +11,7 @@ class CustomerController extends BaseController
 {
     public function index()
     {
-        $data=Customer::with('bank','bank_branches')->get();
+        $data=Customer::with('bank','bank_branch')->get();
         return $this->sendResponse($data,"Customer List");
     }
 

@@ -37,10 +37,13 @@ class CustomerServicetController extends BaseController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,CustomerService $id)
     {
-        $customer_service=CustomerService::where('id',$id)->update($request->all());
-        return $this->sendResponse($customer_service,"Customer Service  updated successfully");
+        $id= $customer_service->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=CustomerService::where('id',$id)->update($input);
+        return $this->sendResponse($data,"Customer Service updated successfully");
     }
 
     /**

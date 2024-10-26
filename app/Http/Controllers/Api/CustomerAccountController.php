@@ -11,14 +11,14 @@ class CustomerAccountController extends BaseController
 {
     public function index()
     {
-        $data=CustomerAccount::with('customer','customer_account')->get();
+        $data=CustomerAccount::with('customer','account_type')->get();
         return $this->sendResponse($data,"Customer Account List");
     }
 
     public function store(Request $request)
     {
-        $data=Bank::create($request->all());
-        return $this->sendResponse($data,"Customer create successfully");
+        $data=CustomerAccount::create($request->all());
+        return $this->sendResponse($data,"Customer Account created successfully");
     }
 
     public function show(CustomerAccount $customer_account)
@@ -26,10 +26,13 @@ class CustomerAccountController extends BaseController
         return $this->sendResponse($customer_account,"Customer  Account Data");
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request,CustomerAccount $id)
     {
-        $customer_account=CustomerAccount::where('id',$id)->update($request->all());
-        return $this->sendResponse($customer_account,"Customer account updated successfully");
+        $id= $customer_account->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=CustomerAccount::where('id',$id)->update($input);
+        return $this->sendResponse($data,"Customer Account updated successfully");
 
     }
     public function destroy(CustomerAccount $customer_account)

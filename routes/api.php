@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\DistrictController;
 use App\Http\Controllers\Api\AccountTypeController;
 use App\Http\Controllers\Api\BankServiceController;
+use App\Http\Controllers\Api\CustomerAccountController;
+use App\Http\Controllers\Api\CustomerServicetController;
  
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,8 @@ Route::controller(AuthController::class)->group(function(){
     Route::apiResource('account_type', AccountTypeController::class);
     Route::apiResource('bank_service', BankServiceController::class);
     Route::apiResource('customer', CustomerController::class);
+    Route::apiResource('customer_account', CustomerAccountController::class);
+    Route::apiResource('customer_service', CustomerServicetController::class);
 });
 
 // Route::middleware('auth:sanctum')->group(function(){
@@ -44,7 +48,6 @@ Route::controller(AuthController::class)->group(function(){
 //     Route::apiResource('district', DistrictController::class);
     // Route::apiResource('bank_branch', BankBranchController::class);
     // Route::apiResource('customer', CustomerController::class);
-    // 
     // Route::apiResource('customer_account', CustomerAccountController::class);
     // Route::apiResource('customer_service', CustomerServicetController::class);
     // Route::apiResource('customer_transaction', CustomerTransactionController::class);

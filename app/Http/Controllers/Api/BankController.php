@@ -29,8 +29,11 @@ class BankController extends BaseController
     
     public function update(Request $request, $id)
     {
-        $bank=Bank::where('id',$id)->update($request->all());
-        return $this->sendResponse($bank,"Bank updated successfully");
+        $id= $bank->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=Bank::where('id',$id)->update($input);
+        return $this->sendResponse($data,"Customer Service updated successfully");
     }
 
     public function destroy(Bank $bank)
