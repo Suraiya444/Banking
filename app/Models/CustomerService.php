@@ -10,7 +10,7 @@ class CustomerService extends Model
     use HasFactory;
     protected $fillable=['customer_id', 'bank_service_id', 'status', 'active_date'];
 
-    public function Customer()
+    public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
