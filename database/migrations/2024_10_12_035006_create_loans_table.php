@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('loan_type_id')->constrained();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('customer_account_id')->constrained();
+            $table->foreignId('customer_type_id')->constrained();
             $table->date('start_date');
             $table->integer('term_length');
             $table->decimal('interest_rate',10,2);

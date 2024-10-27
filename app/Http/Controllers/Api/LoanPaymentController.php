@@ -12,7 +12,7 @@ class LoanPaymentController extends BaseController
     
     public function index()
     {
-        $data=LoanPayment::with('customer','customer_account')->get();
+        $data=LoanPayment::with('customer','loan_id','customer_account')->get();
         return $this->sendResponse($data,"Customer Account List");
     }
 
@@ -27,10 +27,14 @@ class LoanPaymentController extends BaseController
         return $this->sendResponse($loan_payment,"Loan payment Data");
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, LoanPayment $id)
     {
-        $customer_account=LoanPayment::where('id',$id)->update($request->all());
-        return $this->sendResponse($loan_payment,"Loan payment updated successfully");
+        $id=$loan_payment->id;
+        $input =$request->all();
+        unset($input['_method']);
+        $data=LoanPayment::where('id',$id)->update($input);
+        return $this->sendResponse($data,"Account Type updated successfully");
+
 
     }
     public function destroy(LoanPayment $loan_payment)
