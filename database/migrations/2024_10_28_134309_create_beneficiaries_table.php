@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_details', function (Blueprint $table) {
+        Schema::create('beneficiaries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained();
-            $table->foreignId('customer_account_id')->constrained();
-            $table->integer('amount');
-            $table->date('payment_date')->nullable();
-            $table->string('payment_method');
+            $table->string('name');
+            $table->foreignId('account_type_id')->constrained();
+            $table->integer('account_no');
+            $table->integer('status')->nullable()->default(0)->comment('0 not active,1 active');
+            $table->date('active_date');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_details');
+        Schema::dropIfExists('beneficiaries');
     }
 };

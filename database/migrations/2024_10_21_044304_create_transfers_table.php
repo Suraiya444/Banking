@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('customer_account_id')->constrained();
-            $table->integer('to_customer_account_id')->constrained();
+            $table->integer('beneficiary_id')->constrained();
             $table->date('transfer_date');
             $table->decimal('amount',14,2)->nullable();
             $table->integer('status')->default(0);

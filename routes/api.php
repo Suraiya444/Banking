@@ -16,6 +16,12 @@ use App\Http\Controllers\Api\LoanTypeController;
 use App\Http\Controllers\Api\CustomerTypeController;
 use App\Http\Controllers\Api\LoanController;
 use App\Http\Controllers\Api\LoanPaymentController;
+use App\Http\Controllers\Api\CustomerTransactionController;
+use App\Http\Controllers\Api\BeneficiaryController;
+use App\Http\Controllers\Api\TransferController;
+use App\Http\Controllers\Api\PaymentTypeController;
+use App\Http\Controllers\Api\paymentDetailsController;
+ 
  
  
 /*
@@ -50,6 +56,11 @@ Route::controller(AuthController::class)->group(function(){
     Route::apiResource('customer_type', CustomerTypeController::class);
     Route::apiResource('loan', LoanController::class);
     Route::apiResource('loan_payment', LoanPaymentController::class);
+    Route::apiResource('customer_transaction', CustomerTransactionController::class);
+    Route::apiResource('beneficiary', BeneficiaryController::class);
+    Route::apiResource('transfer', TransferController::class);
+    Route::apiResource('payment_type', PaymentTypeController::class);
+    Route::apiResource('payment_detail', paymentDetailsController::class);
 });
 
 // Route::middleware('auth:sanctum')->group(function(){
