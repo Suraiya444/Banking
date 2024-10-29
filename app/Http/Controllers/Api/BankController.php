@@ -27,7 +27,7 @@ class BankController extends BaseController
 
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request,Bank $id)
     {
         $id= $bank->id;
         $input =$request->all();

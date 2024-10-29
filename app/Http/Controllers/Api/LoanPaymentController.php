@@ -12,7 +12,7 @@ class LoanPaymentController extends BaseController
     
     public function index()
     {
-        $data=LoanPayment::with('customer','loan_id','customer_account')->get();
+        $data=LoanPayment::with('customer','loan','customer_account')->get();
         return $this->sendResponse($data,"Customer Account List");
     }
 
