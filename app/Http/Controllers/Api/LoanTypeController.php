@@ -11,18 +11,18 @@ class LoanTypeController extends BaseController
     public function index()
     {
         $data=LoanType::get();
-        return $this->sendResponse($data,"Account Type List");
+        return $this->sendResponse($data,"Loan Type List");
     }
 
     public function store(Request $request)
     {
         $data=LoanType::create($request->all());
-        return $this->sendResponse($data,"Account Type created successfully");
+        return $this->sendResponse($data,"Loan Type created successfully");
     }
 
     public function show(LoanType $loan_type)
     {
-        return $this->sendResponse($loan_type,"Account Type data");
+        return $this->sendResponse($loan_type,"Loan Type data");
     }
 
 
@@ -34,13 +34,13 @@ class LoanTypeController extends BaseController
         $input =$request->all();
         unset($input['_method']);
         $data=LoanType::where('id',$id)->update($input);
-        return $this->sendResponse($data,"Account Type updated successfully");
+        return $this->sendResponse($data,"Loan Type updated successfully");
 
     }
 
     public function destroy(LoanType $loan_type)
     {
-        $loan_type=$account_type->delete();
-        return $this->sendReponse($loan_type, "Account Type deleted successfully");
+        $loan_type=$loan_type->delete();
+        return $this->sendReponse($loan_type, "Loan Type deleted successfully");
     }
 }
