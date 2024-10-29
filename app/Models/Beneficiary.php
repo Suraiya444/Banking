@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Beneficiary extends Model
 {
     use HasFactory;
-    protected $fillable=['name', 'account_type_id','account_no','status',' active_date'];
+    protected $fillable=['name','account_type_id','account_no','status',' active_date'];
 
-    public function accont_type()
+    public function account_type()
     {
-        return $this->belongsTo(AccountType::class);
+        return $this->belongsTo(AccountType::class,'account_type_id');
     }
     
 }

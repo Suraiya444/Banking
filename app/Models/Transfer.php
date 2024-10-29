@@ -12,7 +12,7 @@ class Transfer extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class,);
     }
     public function customer_account()
     {

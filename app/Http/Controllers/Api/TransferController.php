@@ -11,7 +11,7 @@ class TransferController extends BaseController
 {
     public function index()
     {
-        $data=Transfer::with('customer_id','customer_account','beneficiary_id')->get();
+        $data=Transfer::with('customer','customer_account','beneficiary')->get();
         return $this->sendResponse($data,"Transfer List");
     }
 
