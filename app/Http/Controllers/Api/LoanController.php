@@ -26,14 +26,12 @@ class LoanController extends BaseController
     {
         return $this->sendResponse($loan,"Loan Data");
     }
-    public function update(Request $request,Loan $loan)
+
+    public function update(Request $request, $id)
     {
       
-        $id=$loan->id;
-        $input =$request->all();
-        unset($input['_method']);
-        $data=Loan::where('id',$id)->update($input);
-        return $this->sendResponse($data,"Loan updated successfully");
+        $loan=Loan::where('id',$id)->update($request->all());
+        return $this->sendResponse($loan,"Designation updated successfully");
 
     }
     public function destroy(Loan $loan)
