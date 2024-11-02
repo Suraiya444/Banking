@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LoanDetail extends Model
 {
     use HasFactory;
-    protected $fillable=['loan_id','customer_account_id','payment_no','loan_manage','payment','pricipal','interest'];
+    protected $fillable=["loan_id", "customer_account_id", "payment_no", "loan_balance", "payment", "pricipal", "interest", "pay_date", "actual_date"];
 
     public function loan()
     {

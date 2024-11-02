@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('loan_details', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('loan_id')->constrained();
             $table->foreignId('customer_account_id')->constrained();
             $table->string('payment_no')->nullable();
-            $table->string('loan_manage');
-            $table->decimal('payment');
-            $table->decimal('pricipal');
+            $table->decimal('loan_balance',20,2)->default(0);
+            $table->decimal('payment',20,2)->default(0);
+            $table->decimal('pricipal',20,2)->default(0);
             $table->decimal('interest',5,2)->default(0)->comment('in %');
+            $table->date('pay_date')->nullable();
+            $table->date('actual_date')->nullable();
             $table->timestamps();
         });
     }

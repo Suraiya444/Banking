@@ -22,6 +22,10 @@ class Loan extends Model
     {
         return $this->belongsTo(CustomerType::class);
     }
+    public function loan_details()
+    {
+        return $this->hasMany(LoanDetail::class);
+    }
     public function customer_account()
     {
         return $this->belongsTo(CustomerAccount::class);

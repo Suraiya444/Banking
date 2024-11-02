@@ -22,8 +22,8 @@ return new class extends Migration
             $table->decimal('interest_rate',10,2);
             $table->decimal('principal_amount',10,2);
             $table->decimal('amount_with_interest',10,2);
-            $table->decimal('fine',10,2);
-            $table->decimal('total_paid',10,2)->default(0);
+            $table->decimal('fine',10,2)->default(0)->nullable();
+            $table->decimal('total_paid',10,2)->default(0)->nullable();
             $table->timestamps();
         });
     }
