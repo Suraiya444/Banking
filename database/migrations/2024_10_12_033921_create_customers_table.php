@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bank_id')->constrained();
-            $table->foreignId('bank_branch_id')->constrained();
             $table->string('name');
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
