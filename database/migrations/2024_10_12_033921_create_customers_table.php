@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('income',14,2)->nullable();
             $table->string('occupation')->nullable();
             $table->decimal('balance',14,2)->default(0);
+            $table->string('password');
             $table->timestamps();
         });
     }

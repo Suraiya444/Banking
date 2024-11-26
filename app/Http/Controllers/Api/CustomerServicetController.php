@@ -39,7 +39,7 @@ class CustomerServicetController extends BaseController
      */
     public function update(Request $request,CustomerService $id)
     {
-        $id= $customer_service->id;
+        $id= $request->id;
         $input =$request->all();
         unset($input['_method']);
         $data=CustomerService::where('id',$id)->update($input);

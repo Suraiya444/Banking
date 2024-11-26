@@ -32,7 +32,7 @@ class CustomerAccountController extends BaseController
         return $this->sendResponse($customer_account,"Customer  Account Data");
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request,CustomerAccount $id)
     {
         $input =$request->all();
         unset($input['_method']);
@@ -45,4 +45,7 @@ class CustomerAccountController extends BaseController
         $customer_account=$customer_account->delete();
         return $this->sendResponse($customer_account,"Customer Account deleted successfully");
     }
+    
+
 }
+
