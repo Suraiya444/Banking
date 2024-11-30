@@ -49,7 +49,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::apiResource('bank_branch', BankBranchController::class);
     Route::apiResource('account_type', AccountTypeController::class);
     Route::apiResource('bank_service', BankServiceController::class);
-    Route::apiResource('customer', CustomerController::class);
+    // Route::apiResource('customer', CustomerController::class);
     Route::apiResource('customer_account', CustomerAccountController::class);
     Route::apiResource('customer_service', CustomerServicetController::class);
     Route::apiResource('loan_type', LoanTypeController::class);
@@ -62,7 +62,14 @@ Route::controller(AuthController::class)->group(function(){
     Route::apiResource('payment_type', PaymentTypeController::class);
     Route::apiResource('payment_detail', paymentDetailsController::class);
 });
-
+Route::controller(CustomerController::class)->group(function(){
+    Route::get('customer','index');
+    Route::get('customer/{customer}','show');
+    Route::post('customer/edit/{customer}','update');
+    Route::delete('customer/{customer}','destroy');
+    Route::post('customer/create','store');
+    Route::post('customer/login','_login');
+});
 // Route::middleware('auth:sanctum')->group(function(){
 //     Route::apiResource('bank', BankController::class);
 //     Route::apiResource('district', DistrictController::class);

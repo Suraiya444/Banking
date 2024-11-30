@@ -88,7 +88,7 @@ class CustomerController extends BaseController
         if($data){
             $d['token']=$data['id'];
             $d['data']=$data;
-            return $this->sendResponse($d,"User login successfully");
+            return $this->sendResponse($d,"Customer login successfully");
         }else{
             return $this->sendError(['error'=>'email or password is not correct'],"Unauthorized",400);
         }
