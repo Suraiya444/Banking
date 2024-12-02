@@ -9,9 +9,14 @@ use App\Http\Controllers\Api\BaseController;
 
 class CustomerTransactionController extends BaseController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data=CustomerTransaction::with('customer','customer_account')->get();
+        $data=CustomerTransaction::with('customer','customer_account');
+        if($request->customer_id){
+            $data=$data->where('customer_id',$request->customer_id);
+        }
+        $data=$data->get();
+        
         return $this->sendResponse($data,"Customer Transaction list");
     }
 

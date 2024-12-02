@@ -23,8 +23,8 @@ return new class extends Migration
             $table->decimal('yearly_interest',10,2)->comment('in %');
             $table->date('account_open_date');
             $table->date('account_close_date')->nullable();
-            $table->string('password');
             $table->integer('status')->default(1);
+            $table->integer('balance')->nullable();
             $table->timestamps();
         });
     }
