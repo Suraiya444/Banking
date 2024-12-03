@@ -38,7 +38,7 @@ class CustomerTransactionController extends BaseController
         return $this->sendResponse($customer_transaction,"Customer Transaction data");
     }
 
-
+   
     /**
      * Update the specified resource in storage.
      */
