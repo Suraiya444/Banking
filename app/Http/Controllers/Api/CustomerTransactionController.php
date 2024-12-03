@@ -21,14 +21,42 @@ class CustomerTransactionController extends BaseController
     }
 
 
+
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     $data=CustomerTransaction::create($request->all());
+    //     return $this->sendResponse($data,"Customer Transaction created successfully");
+    // }
+
+    
     public function store(Request $request)
-    {
-        $data=CustomerTransaction::create($request->all());
-        return $this->sendResponse($data,"Customer Transaction created successfully");
-    }
+        {
+            // Validate the incoming data
+            $validated = $request->validate([
+                'trans_type' => 'required|integer',
+                'amount' => 'required|numeric',
+                'trans_date' => 'required|date',
+                'description' => 'nullable|string',
+                'customer_id' => 'required|exists:customers,id',
+                'customer_account_id' => 'required|exists:customer_accounts,id',
+            ]);
+
+            // Create the transaction
+            $transaction = new CustomerTransaction();
+            $transaction->trans_type = $validated['trans_type'];
+            $transaction->amount = $validated['amount'];
+            $transaction->trans_date = $validated['trans_date'];
+            $transaction->description = $validated['description'];
+            $transaction->customer_id = $validated['customer_id'];
+            $transaction->customer_account_id = $validated['customer_account_id'];
+            $transaction->save();
+
+            return response()->json(['message' => 'Transaction saved successfully', 'data' => $transaction]);
+        }
+
 
     /**
      * Display the specified resource.

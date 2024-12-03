@@ -80,7 +80,7 @@ class CustomerController extends BaseController
         return $this->sendResponse($customer,"Customer deleted successfully");
     }
 
-    public function _login(Request $r)
+    public function login(Request $r)
     {
         $data=Customer::where('email',$r->email)
                 ->where('password',$r->password)

@@ -68,7 +68,7 @@ Route::controller(CustomerController::class)->group(function(){
     Route::post('customer/edit/{customer}','update');
     Route::delete('customer/{customer}','destroy');
     Route::post('customer/create','store');
-    Route::post('customer/login','_login');
+    Route::post('customer/login','login');
 });
 // Route::middleware('auth:sanctum')->group(function(){
 //     Route::apiResource('bank', BankController::class);
