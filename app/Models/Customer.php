@@ -20,7 +20,7 @@ class Customer extends Model
     // Define the relationship with CustomerAccount
     public function customerAccount()
     {
-        return $this->hasOne(CustomerAccount::class, 'customer_id');
+        return $this->hasMany(CustomerAccount::class);
     }
 }
 
